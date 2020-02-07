@@ -1,0 +1,14 @@
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+/test*
+.vscode/
+
+# results of stable_baselines
+DDPG*/
+TRPO*/
+*zip
