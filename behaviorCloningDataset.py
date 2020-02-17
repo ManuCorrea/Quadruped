@@ -1,6 +1,6 @@
 '''
 This program is used to generate an "expert" trajectory and create a dataset.
-The sequence give is far from being good, that is my point, making easy to the robot to walk
+The sequence given is far from being good, that is my point, making easy to the robot to walk
 but without too much preparation and human work.
 
 For more information https://stable-baselines.readthedocs.io/en/master/guide/pretrain.html
@@ -17,6 +17,8 @@ def degToRad(deg):
 
 state = 0
 
+# TODO improve data generation a bit. Make it dynamic according to position instead of a fixed sequence
+#      for example sometimes turns too much to right or is about to fall over
 # There are 2 different patterns to make it go forward.
 # 0.2 equals to 11.46 degrees
 mov0 = [degToRad(30), degToRad(-30), degToRad(30), degToRad(-30), -0.2, 0.0, 0.0, 0.0, degToRad(-90), degToRad(-90), degToRad(-90), degToRad(-90)] # after reset

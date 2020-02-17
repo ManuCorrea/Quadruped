@@ -1,5 +1,8 @@
 '''
 This is the main definition of the environment
+# TODO Add something like contact_cost in https://github.com/openai/gym/blob/master/gym/envs/mujoco/ant.py but with rewards and just the tibias or the "feet".
+       For example: With the feet in contact with the plane or supports it will be more stable and is something close to learn to walk(can't walk with the 
+       feet in the air)
 '''
 
 import gym
