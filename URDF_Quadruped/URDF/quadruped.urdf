@@ -1,0 +1,490 @@
+<?xml version="1.0"?>
+<robot name="Quadruped">
+    <link name="base_link">
+        <inertial>
+            <origin xyz="0.0 0.0 0.016" rpy="0.0 0.0 0.0"/>
+            <mass value="0.075"/>
+            <inertia ixx="695485120.0" ixy="-2435146.5" ixz="-281720.625000" iyy="695484992.0" iyz="-281714.906250" izz="1298574464.0"/>
+        </inertial>
+        
+        <visual>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Cuerpo.stl" scale="0.001 0.001 0.001"/>
+            </geometry>    
+        </visual>
+        
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+
+        <collision>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+              <mesh filename="package://URDF_Quadruped/STLs/Cuerpo.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+
+    </link>
+
+    <link name="shoulder1">
+        <!-- 
+        <inertial>
+            <origin xyz="0.008 0.025 -0.014" rpy="0.0 0.0 0.0"/>
+            <mass value="0.01"/>
+            <inertia ixx="5013284.0" ixy="-13141.944336" ixz="-14172.009766" iyy="4213659.5" iyz="-617659.9375" izz="2050850.25"/>
+        </inertial>
+
+        -->
+
+        
+        <visual>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <!-- <origin xyz="-9.0 -47.5 -2.0"/> -->
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="shoulder2">
+        <visual>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <!-- <origin xyz="-9.0 -47.5 -2.0"/> -->
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="shoulder3">
+        <visual>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <!-- <origin xyz="-9.0 -47.5 -2.0"/> -->
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="shoulder4">
+        <visual>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <!-- <origin xyz="-9.0 -47.5 -2.0"/> -->
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="-0.009 -0.0475 -0.002"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/HombroSoporte.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="rot_shoulder1">
+        <inertial>
+            <origin xyz="-0.010 0.040 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.016"/>
+            <inertia ixx="12746063.0" ixy="181329.78125" ixz="38510.046875" iyy="1291722.625" iyz="-136528.234375" izz="12698897.0"/>
+        </inertial>
+        
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="rot_shoulder2">
+        <inertial>
+            <origin xyz="-0.010 0.040 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.016"/>
+            <inertia ixx="12746063.0" ixy="181329.78125" ixz="38510.046875" iyy="1291722.625" iyz="-136528.234375" izz="12698897.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="rot_shoulder3">
+        <inertial>
+            <origin xyz="-0.010 0.040 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.016"/>
+            <inertia ixx="12746063.0" ixy="181329.78125" ixz="38510.046875" iyy="1291722.625" iyz="-136528.234375" izz="12698897.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="rot_shoulder4">
+        <inertial>
+            <origin xyz="-0.010 0.040 0.0" rpy="0.0 0.0 0.0"/>
+            <mass value="0.016"/>
+            <inertia ixx="12746063.0" ixy="181329.78125" ixz="38510.046875" iyy="1291722.625" iyz="-136528.234375" izz="12698897.0"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/soporteFemur Simplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="S1_rot" type="revolute">
+        <!-- Hay que ajustar el origen-->
+        <origin xyz="0.0 -0.026 -0.0481" rpy="0.0 3.14 0.0"/>
+        <parent link="shoulder1"/>
+        <child link="rot_shoulder1"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="1.57" />
+    </joint>   
+
+    <joint name="S2_rot" type="revolute">
+        <!-- Hay que ajustar el origen-->
+        <origin xyz="0.0 -0.026 -0.0481" rpy="0.0 3.14 0.0"/>
+        <parent link="shoulder2"/>
+        <child link="rot_shoulder2"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="1.57" />
+    </joint>   
+
+    <joint name="S3_rot" type="revolute">
+        <!-- Hay que ajustar el origen-->
+        <origin xyz="0.0 -0.026 -0.0481" rpy="0.0 3.14 0.0"/>
+        <parent link="shoulder3"/>
+        <child link="rot_shoulder3"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="1.57" />
+    </joint>   
+
+    <joint name="S4_rot" type="revolute">
+        <!-- Hay que ajustar el origen-->
+        <origin xyz="0.0 -0.026 -0.0481" rpy="0.0 3.14 0.0"/>
+        <parent link="shoulder4"/>
+        <child link="rot_shoulder4"/>
+        <axis xyz="0.0 1.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="1.57" />
+    </joint>   
+
+    
+    <link name="femur1">
+        <inertial>
+            <origin xyz="0.006 0.0 0.104" rpy="0.0 0.0 0.0"/>
+            <mass value="0.020"/>
+            <inertia ixx="98539800.0" ixy="0.020324" ixz="-8.314446" iyy="98587560.0" iyz="37010.734375" izz="622656.5"/>
+        </inertial>
+        
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="femur2">
+        <inertial>
+            <origin xyz="0.006 0.0 0.104" rpy="0.0 0.0 0.0"/>
+            <mass value="0.020"/>
+            <inertia ixx="98539800.0" ixy="0.020324" ixz="-8.314446" iyy="98587560.0" iyz="37010.734375" izz="622656.5"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="femur3">
+        <inertial>
+            <origin xyz="0.006 0.0 0.104" rpy="0.0 0.0 0.0"/>
+            <mass value="0.020"/>
+            <inertia ixx="98539800.0" ixy="0.020324" ixz="-8.314446" iyy="98587560.0" iyz="37010.734375" izz="622656.5"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="femur4">
+        <inertial>
+            <origin xyz="0.006 0.0 0.104" rpy="0.0 0.0 0.0"/>
+            <mass value="0.020"/>
+            <inertia ixx="98539800.0" ixy="0.020324" ixz="-8.314446" iyy="98587560.0" iyz="37010.734375" izz="622656.5"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/femurSimplificado.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="rot_femur1" type="revolute">
+        <origin xyz="-0.00525 0.0298 0.0" rpy="0.0 0 0.0"/>
+        <parent link="rot_shoulder1"/>
+        <child link="femur1"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-0.7" upper="0.7" />
+    </joint>
+
+    <joint name="rot_femur2" type="revolute">
+        <origin xyz="-0.00525 0.0298 0.0" rpy="0.0 0 0.0"/>
+        <parent link="rot_shoulder2"/>
+        <child link="femur2"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-0.7" upper="0.7" />
+    </joint>
+
+    <joint name="rot_femur3" type="revolute">
+        <origin xyz="-0.00525 0.0298 0.0" rpy="0.0 0 0.0"/>
+        <parent link="rot_shoulder3"/>
+        <child link="femur3"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-0.7" upper="0.7" />
+    </joint>
+
+    <joint name="rot_femur4" type="revolute">
+        <origin xyz="-0.00525 0.0298 0.0" rpy="0.0 0 0.0"/>
+        <parent link="rot_shoulder4"/>
+        <child link="femur4"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-0.7" upper="0.7" />
+    </joint>
+
+    <link name="tibia1">
+        <inertial>
+            <origin xyz="0.0 0.0 -0.090" rpy="0.0 0.0 0.0"/>
+            <mass value="0.022"/>
+            <inertia ixx="87849200.0" ixy="-4.369621" ixz="350352.375" iyy="88264168.0" iyz="420.641357" izz="1111564.125"/>
+        </inertial>
+        
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="tibia2">
+        <inertial>
+            <origin xyz="0.0 0.0 -0.090" rpy="0.0 0.0 0.0"/>
+            <mass value="0.022"/>
+            <inertia ixx="87849200.0" ixy="-4.369621" ixz="350352.375" iyy="88264168.0" iyz="420.641357" izz="1111564.125"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="tibia3">
+        <inertial>
+            <origin xyz="0.0 0.0 -0.090" rpy="0.0 0.0 0.0"/>
+            <mass value="0.022"/>
+            <inertia ixx="87849200.0" ixy="-4.369621" ixz="350352.375" iyy="88264168.0" iyz="420.641357" izz="1111564.125"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <link name="tibia4">
+        <inertial>
+            <origin xyz="0.0 0.0 -0.090" rpy="0.0 0.0 0.0"/>
+            <mass value="0.022"/>
+            <inertia ixx="87849200.0" ixy="-4.369621" ixz="350352.375" iyy="88264168.0" iyz="420.641357" izz="1111564.125"/>
+        </inertial>
+        <visual>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+
+        <collision>
+            <origin xyz="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://URDF_Quadruped/STLs/Tibia.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="knee1" type="revolute">
+        <origin xyz="0.00635 0.0 0.197" rpy="0.0 3.14 0.0"/>
+        <parent link="femur1"/>
+        <child link="tibia1"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="0.8" />
+    </joint>
+
+    <joint name="knee2" type="revolute">
+        <origin xyz="0.00635 0.0 0.197" rpy="0.0 3.14 0.0"/>
+        <parent link="femur2"/>
+        <child link="tibia2"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="0.8" />
+    </joint>
+
+    <joint name="knee3" type="revolute">
+        <origin xyz="0.00635 0.0 0.197" rpy="0.0 3.14 0.0"/>
+        <parent link="femur3"/>
+        <child link="tibia3"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="0.8" />
+    </joint>
+
+    <joint name="knee4" type="revolute">
+        <origin xyz="0.00635 0.0 0.197" rpy="0.0 3.14 0.0"/>
+        <parent link="femur4"/>
+        <child link="tibia4"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit effort="0" velocity="1.0" lower="-1.57" upper="0.8" />
+    </joint>
+
+
+
+    <joint name="base1" type="fixed">
+        <!-- <origin xyz="97.172 -27.5 97.172" rpy="0.0 0.0 0.0"/> -->
+        <origin xyz="0.097172 0.097172 -0.0275" rpy="1.57 0.0 -0.785"/>
+        <parent link="base_link"/>
+        <child link="shoulder1"/>
+    </joint>
+
+    <joint name="base2" type="fixed">
+        <!-- <origin xyz="97.172 -27.5 97.172" rpy="0.0 0.0 0.0"/> -->
+        <origin xyz="0.097172 -0.097172 -0.0275" rpy="1.57 0.0 -2.356"/>
+        <parent link="base_link"/>
+        <child link="shoulder2"/>
+    </joint>
+
+    <joint name="base3" type="fixed">
+        <!-- <origin xyz="97.172 -27.5 97.172" rpy="0.0 0.0 0.0"/> -->
+        <origin xyz="-0.097172 -0.097172 -0.0275" rpy="1.57 0.0 2.356"/>
+        <parent link="base_link"/>
+        <child link="shoulder3"/>
+    </joint>
+
+    <joint name="base4" type="fixed">
+        <!-- <origin xyz="97.172 -27.5 97.172" rpy="0.0 0.0 0.0"/> -->
+        <origin xyz="-0.097172 0.097172 -0.0275" rpy="1.57 0.0 0.785"/>
+        <parent link="base_link"/>
+        <child link="shoulder4"/>
+    </joint>
+</robot>
