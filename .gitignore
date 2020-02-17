@@ -11,4 +11,11 @@ __pycache__/
 # results of stable_baselines
 DDPG*/
 TRPO*/
+PPO*/
+HER*/
 *zip
+pretrain/*
+*.npz
+
+# own messy code that I use to test
+test*.py
