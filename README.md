@@ -2,6 +2,8 @@
 This project is a robotic platform to use for education, development and research. 
 Objectives: **democratize robotics** and **sim-to-real research**.
 
+![](Media/expert.gif)
+
 ## Installation
 
 If using stable baselines:
@@ -25,12 +27,12 @@ pip3 install -r requeriments.txt
 * 7-12V LiPo battery
 * 10 x 3D printer endstops
 ### Tools
+* 3D printer
 * Soledering iron and solder wire
 * M3 screws, nuts and self-locking nuts
 
-You will also need access to a 3D printer.
-
 ## Building
+![](Media/portada.JPG)
 For details and images you can check my [hackster project](https://www.hackster.io/_ManuCorrea_/rl-quadruped-0afbc3)
 
 ## Contributing
