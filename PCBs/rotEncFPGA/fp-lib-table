@@ -1,0 +1,4 @@
+(fp_lib_table
+  (lib (name rotEncFPGA)(type KiCad)(uri /home/manu/Desktop/Cloud/Quadruped/PCBs/rotEncFPGA.pretty)(options "")(descr ""))
+  (lib (name tinyFGPABX)(type KiCad)(uri ${KIPRJMOD}/tinyFGPABX.pretty)(options "")(descr ""))
+)
