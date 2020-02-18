@@ -1,0 +1,5 @@
+stable-baselines[mpi]
+pyserial
+numpy
+gym
+pybullet
