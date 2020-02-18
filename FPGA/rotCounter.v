@@ -11,10 +11,10 @@ module rotaryEncoderCounter(input CLK, A, B,
       A_State <= A;
       if (A_Last_State != A_State) begin
         if (A_State != B) begin
-          counter <= counter - 1;
+          counter <= counter - 1; //CCW
         end
         else begin
-          counter <= counter + 1;
+          counter <= counter + 1; // CW
         end
       end
       A_Last_State <= A_State;

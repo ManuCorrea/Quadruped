@@ -25,6 +25,8 @@ module top (
     input PIN_22,
     input PIN_23, //Motor 12
     input PIN_24,
+    input PIN_26, // pin at the bottom
+    input PIN_27, // Tx pin at the bottom
     output USBPU  // USB pull-up resistor
 );
     // drive USB pull-up resistor to '0' to disable USB
@@ -44,6 +46,9 @@ module top (
     wire [4:0] counter11;
     wire [4:0] counter12;
 
+    wire baud_tick;
+    baud_gen GENERATOR(CLK, baud_tick); // 115200 serial
+
     // initalization of each module
     rotaryEncoderCounter C1(CLK, PIN_1, PIN_2, counter1);
     rotaryEncoderCounter C2(CLK, PIN_3, PIN_4, counter2);
@@ -57,4 +62,50 @@ module top (
     rotaryEncoderCounter C10(CLK, PIN_19, PIN_20, counter10);
     rotaryEncoderCounter C11(CLK, PIN_21, PIN_22, counter11);
     rotaryEncoderCounter C12(CLK, PIN_23, PIN_24, counter12);
+
+    reg[4:0] dataSerial;
+    reg transmit;
+    reg [4:0]position=4'd0;
+    reg bit_trans;
+    assign PIN_27 = bit_trans;
+
+    reg [4:0]motorNum = 4'd0;
+
+    always @(posedge baud_tick) begin
+      case(motorNum)
+        0:dataSerial = counter1;
+        1:dataSerial = counter1;
+        2:dataSerial = counter1;
+        3:dataSerial = counter1;
+        4:dataSerial = counter1;
+        5:dataSerial = counter1;
+        6:dataSerial = counter1;
+        7:dataSerial = counter1;
+        8:dataSerial = counter1;
+        9:dataSerial = counter1;
+        10:dataSerial = counter1;
+        11:begin dataSerial = counter1; dataSerial=0; end
+      endcase
+
+      if (PIN_26 == 1'b1 || transmit == 1) begin // If pin 26 HIGH then we transmit
+            transmit <= 1;                       // by pin 27 Tx
+            case(position)
+              0:bit_trans <= 0; // startbit
+              1:bit_trans <= dataSerial[position]; //b1
+              2:bit_trans <= dataSerial[position];
+              3:bit_trans <= dataSerial[position];
+              4:bit_trans <= dataSerial[position];
+              5:bit_trans <= dataSerial[position];
+              6:bit_trans <= dataSerial[position];
+              7:bit_trans <= dataSerial[position];
+              8:bit_trans <= dataSerial[position]; //b7
+              9:bit_trans <= 1; //stop
+              10: transmit <= 0;
+              default : bit_trans <= 1;
+
+            endcase
+            position <= position + 4'd1;
+        end
+      end
+
 endmodule
