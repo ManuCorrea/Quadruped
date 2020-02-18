@@ -2,6 +2,8 @@
 This project is a robotic platform to use for education, development and research. 
 Objectives: **democratize robotics** and **sim-to-real research**.
 
+![](Media/expert.gif)
+
 ## Installation
 
 If using stable baselines:
