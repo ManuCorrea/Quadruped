@@ -71,20 +71,21 @@ module top (
 
     reg [4:0]motorNum = 4'd0;
 
+    // TODO: implement motor data select
     always @(posedge baud_tick) begin
       case(motorNum)
         0:dataSerial = counter1;
-        1:dataSerial = counter1;
-        2:dataSerial = counter1;
-        3:dataSerial = counter1;
-        4:dataSerial = counter1;
-        5:dataSerial = counter1;
-        6:dataSerial = counter1;
-        7:dataSerial = counter1;
-        8:dataSerial = counter1;
-        9:dataSerial = counter1;
-        10:dataSerial = counter1;
-        11:begin dataSerial = counter1; dataSerial=0; end
+        1:dataSerial = counter2;
+        2:dataSerial = counter3;
+        3:dataSerial = counter4;
+        4:dataSerial = counter5;
+        5:dataSerial = counter6;
+        6:dataSerial = counter7;
+        7:dataSerial = counter8;
+        8:dataSerial = counter9;
+        9:dataSerial = counter10;
+        10:dataSerial = counter11;
+        11:begin dataSerial = counter12; dataSerial=0; end
       endcase
 
       if (PIN_26 == 1'b1 || transmit == 1) begin // If pin 26 HIGH then we transmit

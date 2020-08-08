@@ -12,8 +12,9 @@ typedef union {
 binaryFloat xRot;
 binaryFloat yRot;
 
-
+// Used to collect the current joint angle values
 int jointStates[12];
+// Used to collect the desired joint angle values to be sent to motor control board
 int jointCommand[12];
 
 void setup() {
@@ -23,11 +24,8 @@ void setup() {
   xRot.Rot = 1.5;
   yRot.Rot = 0.5;
   
-  for(int i=0; i<12; i++){
-    jointStates[i] = i;
-  }
+  // TODO: need to get or reset current joint states
   
-  // put your setup code here, to run once:
   Serial.begin(9600);
 }
 
@@ -53,6 +51,9 @@ void retJointStates(){ // 0x00
   Serial.write(0xFF);
 }
 
+/*
+retRotandMov() is used to return gyroscope and movement data on Serial
+*/
 void retRotandMov(){ // 0x05
   Serial.write(xRot.binary, 4);
   Serial.write(yRot.binary, 4);
@@ -60,6 +61,9 @@ void retRotandMov(){ // 0x05
   Serial.write(yMov);
 }
 
+/*
+resetState() is used to reset the robot to "origin position"
+*/
 void resetState(){ // 0x03
   // TODO implement reset(all joints to endstops)
 }
@@ -67,18 +71,15 @@ void resetState(){ // 0x03
 void setJoints(){ // 0x01
   digitalWrite(LED_BUILTIN, HIGH);
   int angle;
-  delay(200); // need to wait to get full array without any problem
-  if (Serial.available()>11){
-    
-    for(int i=0; i<12; i++){
-        angle = Serial.read();
-        jointCommand[i] = angle;
-        jointStates[i] = angle;
-      }
-  }
+  while(Serial.available() <= 11) {};
+  for(int i=0; i<12; i++){
+      angle = Serial.read();
+      jointCommand[i] = angle;
+    }
   if(Serial.available()){
     if(Serial.read() == 0x02){
       digitalWrite(LED_BUILTIN, LOW);
     }
   }
+  // TODO: send orders to the control board
 }
