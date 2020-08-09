@@ -16,7 +16,15 @@ import pybullet_data
 import time
 
 class QuadrupedEnv(gym.Env):
-    def __init__(self, timeStep=0.005, visualize=False):
+    def __init__(self, ordersTimeStep=0.5, timeStep=1/240, visualize=False):
+        """
+            :param ordersTimeStep: time elapsed between orders(seconds). 
+                Ej: If NN can process each step in 0.45±0.02 we would be interested in sending orders each 0.5 seconds
+            :param timeStep: PyBullet parameter, better not modify...
+                From docs: "...friction and non-contact joints are related to the time step. If you change the time step,
+                you may need to re-tune those values accordingly, especially the erp values."
+            :param visualize: Boolean used to choose if you want to visualize the simulation or not
+        """
 
         if(visualize):
             physicsClient = p.connect(p.GUI) # graphical version of pybullet
@@ -31,7 +39,9 @@ class QuadrupedEnv(gym.Env):
         cubeStartOrientation = p.getQuaternionFromEuler([0,0,0])
         self.quadrupedId = p.loadURDF("URDF_Quadruped/URDF/quadruped.urdf",cubeStartPos, cubeStartOrientation)
 
+        p.setTimeStep(timeStep)
         self.timeStep = timeStep
+        self.ordersTimeStep = ordersTimeStep
 
         self.observation_space = spaces.Box(low=-1.57, high=1.57, shape=(15,)) # +-90 degrees of observation
         self.action_space = spaces.Box(low=-1.57, high=1.57, shape=(12,)) #' # +-90 degrees of action per joint
@@ -68,14 +78,14 @@ class QuadrupedEnv(gym.Env):
 
     def stepTime(self):
         """
-        Function for make time advance
+        Function to step the desired time per order.
         """
-        # TODO use setTimeStep function from API and making it works
-        # previous use of setTimeStep collisions were not computed properly
-        for _ in range(int(0.5/self.timeStep)):
-            p.stepSimulation()
+        # 240 Hz is the default time step so time interval in step is 0.0042 sec
+        for _ in range(int(self.ordersTimeStep/self.timeStep)):
+            p.stepSimulation() 
             if self.visualize:
-                time.sleep(1/240)
+                time.sleep(self.timeStep)
+
 
     def getState(self):
         posAndOrient = p.getBasePositionAndOrientation(self.quadrupedId)
